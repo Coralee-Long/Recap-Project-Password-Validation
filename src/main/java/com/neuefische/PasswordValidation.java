@@ -44,7 +44,7 @@ public class PasswordValidation {
         // convert String to chars array
         char[] charArray = password.toCharArray();
         for (int i = 0; i < password.length(); i++) {
-            // You need to use the built-in Character method: Character.isDigit()
+            // You need to use the built-in Character method: Character.isUpperCase()
             if (Character.isUpperCase(charArray[i])) {
                 return true;
             }
@@ -59,7 +59,7 @@ public class PasswordValidation {
         // convert String to chars array
         char[] charArray = password.toCharArray();
         for (int i = 0; i < password.length(); i++) {
-            // You need to use the built-in Character method: Character.isDigit()
+            // You need to use the built-in Character method: Character.isLowerCase()
             if (Character.isLowerCase(charArray[i])) {
                 return true;
             }
