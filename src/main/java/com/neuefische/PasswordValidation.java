@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.InputStream;
 import java.util.HashSet;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class PasswordValidation {
     public static boolean isPasswordLengthValid(String password) {
@@ -93,5 +94,15 @@ public class PasswordValidation {
             loadCommonPasswords(); // Load passwords if not already loaded
         }
         return commonPasswords.contains(password);
+    }
+
+    // Bonus: Check if password contains special characters:
+    public static boolean hasSpecialCharacters(String password) {
+        Pattern regex = Pattern.compile("[^a-zA-Z0-9]"); // Kind of like saying: regex = !letters && !numbers
+
+        if (regex.matcher(password).find()) {
+            return true; // hasSpecialCharacters ? true
+        }
+        return false; // hasSpecialCharacters ? false
     }
 }

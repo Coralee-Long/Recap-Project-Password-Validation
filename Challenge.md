@@ -89,7 +89,8 @@ Now we will implement the functions test-driven.
 
 If you are already done with the main task, you can try the bonus tasks.
 
-- [ ] Extend the password validation to check if the password contains special characters.
+- [x] Extend the password validation to check if the password contains special characters.
+> Used regex: "[^a-zA-Z0-9]"
 
 ## Bonus: Random Password
 

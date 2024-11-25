@@ -190,4 +190,25 @@ class PasswordValidationTest {
         Assertions.assertFalse(actual);
     }
 
+    // ---------------------- Special Character Validations ----------------------- //
+
+    @Test
+    void expectTrue_whenPW_contains_specialChars() {
+        // GIVEN
+        String password = "P@ssw`ädsglf25454";
+        // WHEN
+        boolean actual = PasswordValidation.isPasswordCommon(password);
+        // THEN
+        Assertions.assertFalse(actual);
+    }
+
+    @Test
+    void expectFalse_whenPW_doesNotContain_specialChars() {
+        // GIVEN
+        String password = "PasswordNoSpecialChars123";
+        // WHEN
+        boolean actual = PasswordValidation.isPasswordCommon(password);
+        // THEN
+        Assertions.assertFalse(actual);
+    }
 }
