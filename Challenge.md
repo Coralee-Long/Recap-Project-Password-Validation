@@ -71,7 +71,8 @@ Now we will implement the functions test-driven.
 
 Now we will implement the functions test-driven.
 
-- [ ] Now write test-driven the function to ensure that both uppercase and lowercase letters are found in the password.
+- [x] Now write test-driven the function to ensure that both uppercase and lowercase letters are found in the password.
+      ![Third Tests](src/main/resources/images/thirdTests.png)
 
 ## Coding: Commonly Used Passwords
 

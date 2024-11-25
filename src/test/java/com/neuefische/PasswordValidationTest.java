@@ -121,4 +121,50 @@ class PasswordValidationTest {
         // THEN
         Assertions.assertFalse(actual);
     }
+
+    // ---------------------- Password Upper/Lower Case Validations ----------------------- //
+
+    // Sad case - if password has no UpperCase char(s)
+    @Test
+    void expectFalse_whenPW_containsNoUpperCaseChars() {
+        // GIVEN
+        String password = "ihavenouppercasechars123";
+        // WHEN
+        boolean actual = PasswordValidation.checkPasswordContainsUpperCaseChars(password);
+        // THEN
+        Assertions.assertFalse(actual);
+    }
+
+    // Happy Case - if password has UpperCase char(s)
+    @Test
+    void expectTrue_whenPW_containsUpperCaseChars() {
+        // GIVEN
+        String password = "iHaveUpperCaseChars123";
+        // WHEN
+        boolean actual = PasswordValidation.checkPasswordContainsUpperCaseChars(password);
+        // THEN
+        Assertions.assertTrue(actual);
+    }
+
+    // Sad case - if password has no LowerCase char(s)
+    @Test
+    void expectFalse_whenPW_containsNoLowerCaseChars() {
+        // GIVEN
+        String password = "IHAVENOLOWERCASECHARS123";
+        // WHEN
+        boolean actual = PasswordValidation.checkPasswordContainsLowerCaseChars(password);
+        // THEN
+        Assertions.assertFalse(actual);
+    }
+
+    // Happy Case - if password has LowerCase char(s)
+    @Test
+    void expectTrue_whenPW_containsLowerCaseChars() {
+        // GIVEN
+        String password = "iHaveLowerCaseChars123";
+        // WHEN
+        boolean actual = PasswordValidation.checkPasswordContainsLowerCaseChars(password);
+        // THEN
+        Assertions.assertTrue(actual);
+    }
 }

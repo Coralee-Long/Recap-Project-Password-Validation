@@ -30,4 +30,34 @@ public class PasswordValidation {
         }
         return false;
     }
+
+    public static boolean checkPasswordContainsUpperCaseChars(String password) {
+        if (password == null || password.isEmpty()) {
+            return false;
+        }
+        // convert String to chars array
+        char[] charArray = password.toCharArray();
+        for (int i = 0; i < password.length(); i++) {
+            // You need to use the built-in Character method: Character.isDigit()
+            if (Character.isUpperCase(charArray[i])) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean checkPasswordContainsLowerCaseChars(String password) {
+        if (password == null || password.isEmpty()) {
+            return false;
+        }
+        // convert String to chars array
+        char[] charArray = password.toCharArray();
+        for (int i = 0; i < password.length(); i++) {
+            // You need to use the built-in Character method: Character.isDigit()
+            if (Character.isLowerCase(charArray[i])) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
