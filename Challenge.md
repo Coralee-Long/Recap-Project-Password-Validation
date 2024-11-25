@@ -109,4 +109,4 @@ Explanation:
 
 If you are already done with the main task, you can try the bonus tasks.
 
-- [ ] Implement a function that generates a random secure password - which meets the criteria defined in your previously defined methods every time.
+- [x] Implement a function that generates a random secure password - which meets the criteria defined in your previously defined methods every time.

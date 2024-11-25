@@ -255,4 +255,26 @@ class PasswordValidationTest {
         Assertions.assertFalse(actual);
     }
 
+    // ---------------------- Test Password Generator ----------------------- //
+    @Test
+    void expectTrue_whenGeneratedPW_isValid() {
+        // GIVEN
+        int desiredPasswordLength = 16;
+        String generatedPassword = PasswordGenerator.generateSecurePassword(desiredPasswordLength);
+        // WHEN
+        boolean actual = PasswordValidation.validatePasswordRegex(generatedPassword);
+        //THEN
+        Assertions.assertTrue(actual);
+    }
+
+    @Test
+    void expectFalse_whenGeneratedPW_isNotValid() {
+        // GIVEN
+        int desiredPasswordLength = 3;
+        String generatedPassword = PasswordGenerator.generateSecurePassword(desiredPasswordLength);
+        // WHEN
+        boolean actual = PasswordValidation.validatePasswordRegex(generatedPassword);
+        //THEN
+        Assertions.assertFalse(actual);
+    }
 }
