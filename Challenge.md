@@ -80,8 +80,10 @@ Now we will implement the functions test-driven.
 
 Now we will implement the functions test-driven.
 
-- [ ] Now write the test-driven function for checking if the password contains weak passwords like 'Password1' or 'Aa345678'.
-
+- [x] Now write the test-driven function for checking if the password contains weak passwords like 'Password1' or 'Aa345678'.
+> I tried the static list idea, but it's case-sensitive and the text file I downloaded only has lowercase passwords
+> Therefore: "password1" works but not "Password1" doesn't
+> Will try something else if I get the time
 
 ## Coding: Bonus Task
 
