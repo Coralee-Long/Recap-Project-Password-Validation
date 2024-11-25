@@ -8,7 +8,9 @@ import org.junit.jupiter.api.Test;
 
 class PasswordValidationTest {
 
-    // Sad case
+    // ---------------------- Password Length Validations ----------------------- //
+
+    // Sad case - Check password length
     @Test
     void expectFalse_whenPW_length_lessThan_8chars() {
         // GIVEN
@@ -16,11 +18,10 @@ class PasswordValidationTest {
         // WHEN
         boolean actual = PasswordValidation.isPasswordLengthValid(password);
         // THEN
-        boolean expected = false;
-        Assertions.assertEquals(expected, actual);
+        Assertions.assertFalse(actual);
     }
 
-    // Happy Case
+    // Happy Case - Check password length
     @Test
     void expectTrue_whenPW_length_min_8chars() {
     // GIVEN
@@ -28,11 +29,10 @@ class PasswordValidationTest {
     // WHEN
         boolean actual = PasswordValidation.isPasswordLengthValid(password);
     // THEN
-        boolean expected = true;
-        Assertions.assertEquals(expected, actual);
+        Assertions.assertTrue(actual);
     }
 
-    // possible edge case - password exactly 8 chars in length
+    // Edge Case - password exactly 8 chars in length
     @Test
     void expectTrue_whenPW_length_exactly_8chars() {
         // GIVEN
@@ -40,43 +40,85 @@ class PasswordValidationTest {
         // WHEN
         boolean actual = PasswordValidation.isPasswordLengthValid(password);
         // THEN
-        boolean expected = true;
-        Assertions.assertEquals(expected, actual);
+        Assertions.assertTrue(actual);
     }
 
-    // possible edge case - password empty String
+    // Edge Case - password empty String
     @Test
-    void expectFalse_whenPW_emptyString() {
+    void expectFalse_whenPW_length_isEmpty() {
         // GIVEN
         String password = "";
         // WHEN
         boolean actual = PasswordValidation.isPasswordLengthValid(password);
         // THEN
-        boolean expected = false;
-        Assertions.assertEquals(expected, actual);
+        Assertions.assertFalse(actual);
     }
 
-    // possible edge case - password empty String
+    // Edge Case - password empty String
     @Test
-    void expectFalse_whenPW_null() {
+    void expectFalse_whenPW_length_null() {
         // GIVEN
         String password = null;
         // WHEN
         boolean actual = PasswordValidation.isPasswordLengthValid(password);
         // THEN
-        boolean expected = false;
-        Assertions.assertEquals(expected, actual);
+        Assertions.assertFalse(actual);
     }
 
-    // possible edge case - password is crazy long
+    // Edge Case - password is crazy long
     @Test
-    void expectFalse_whenPW_lengthExceeds_max36Chars() {
+    void expectFalse_whenPW_length_exceeds_max36Chars() {
         // GIVEN
         String password = "thisIsSomeCrazyLongPasswordThatIsDefinitelyTooLong1234567890";
         // WHEN
         boolean actual = PasswordValidation.isPasswordLengthValid(password);
         // THEN
-        boolean expected = false;
-        Assertions.assertEquals(expected, actual);
+        Assertions.assertFalse(actual);
+    }
+
+    // ---------------------- Password Contains Number Validations ----------------------- //
+
+    // Sad case - Check if password contains any numbers
+    @Test
+    void expectFalse_whenPW_containsNoNumbers() {
+        // GIVEN
+        String password = "passwordWithNoNumbers";
+        // WHEN
+        boolean actual = PasswordValidation.checkPasswordContainsNumber(password);
+        // THEN
+        Assertions.assertFalse(actual);
+    }
+
+    // Happy case - Check if password contains any numbers
+    @Test
+    void expectTrue_whenPW_containsNumbers() {
+        // GIVEN
+        String password = "passwordWithNumbers123";
+        // WHEN
+        boolean actual = PasswordValidation.checkPasswordContainsNumber(password);
+        // THEN
+        Assertions.assertTrue(actual);
+    }
+
+    // Edge case - Check if password is null
+    @Test
+    void expectFalse_whenPW_isNull() {
+        // GIVEN
+        String password = null;
+        // WHEN
+        boolean actual = PasswordValidation.checkPasswordContainsNumber(password);
+        // THEN
+        Assertions.assertFalse(actual);
+    }
+
+    // Edge case - Check if password is null
+    @Test
+    void expectFalse_whenPW_isEmpty() {
+        // GIVEN
+        String password = "";
+        // WHEN
+        boolean actual = PasswordValidation.checkPasswordContainsNumber(password);
+        // THEN
+        Assertions.assertFalse(actual);
     }
 }

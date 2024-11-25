@@ -62,9 +62,10 @@ Now we will implement the functions test-driven.
 
 Now we will implement the functions test-driven.
 
-- [ ] Here too, first define a test method. It should use the method that checks if a password contains digits.
-- [ ] Implement the functionality.
-- [ ] Define additional test methods for different passwords.
+- [x] Here too, first define a test method. It should use the method that checks if a password contains digits.
+- [x] Implement the functionality.
+- [x] Define additional test methods for different passwords.
+    ![Second Tests](src/main/resources/images/secondTests.png)
 
 ## Coding: Uppercase and Lowercase
 
