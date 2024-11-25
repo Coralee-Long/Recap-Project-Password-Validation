@@ -12,40 +12,42 @@ Today we will write a password validation in Java! There is a lot to do, but let
 
 Think about how the methods for password validation should look like. Discuss return values and types of parameters. Define names. However, do not implement the actual code of the individual methods in this step. The following methods are involved:
 
+
 * **A method that ensures a password is at least 8 characters long.**
-    - .length() method from String class
-    - Java String classes contain a built-in length() method
-    - Note: length() method includes blanks, spaces and special characters
+    > - .length() method from String class
+    > - Java String classes contain a built-in length() method
+    > - Note: length() method includes blanks, spaces and special characters
 
     <br>
 * **With another method, you want to check if the password contains digits.**
-  - There seems to be a few options, I will decide later which is best
-      1. Using Regex
-      2. Using a Loop -> Convert String to char array.toCharArray(), 
-         then use Character.isDigit() method to check for numbers
-      3. Using Streams -> str.chars().anyMatch(Character::isDigit)
+    >  - There seems to be a few options, I will decide later which is best
+    >      1. Using Regex
+    >      2. Using a Loop -> Convert String to char array.toCharArray(), 
+             then use Character.isDigit() method to check for numbers
+    >      3. Using Streams -> str.chars().anyMatch(Character::isDigit)
 
-      <br>
+    <br>
 * **Additionally, you want to ensure with a method that both uppercase and lowercase letters are used in the password.**
-  - .isUpperCase() & .isLowerCase() method from Character class 
-  - Java Character classes contain built-in methods like: isLowerCase() / isLowerCase()
+  > - .isUpperCase() & .isLowerCase() method from Character class 
+  > - Java Character classes contain built-in methods like: isLowerCase() / isLowerCase()
 
     <br>
 * **And a method should detect commonly used passwords.**
 
-    - After some research, there seem to be a few options:
-      1. Creating a static list of common passwords
-           - One person suggested creating an array to iterate through (seems painful)
-           - Another mentioned loading the list into memory (eg HashSet) -> I need to research this more still
+    > - After some research, there seem to be a few options:
+    >  1. Creating a static list of common passwords
+    >       - One person suggested creating an array to iterate through (seems painful)
+    >       - Another mentioned loading the list into memory (eg HashSet) -> I need to research this more still
+    >       - Found this existing text file: [10k-most-common.txt](https://github.com/danielmiessler/SecLists/blob/master/Passwords/Common-Credentials/10k-most-common.txt)
   
-      2. Using Regex
+    >  2. Using Regex
   
-      3. Finding a Java Library that can do this
+    >  3. Finding a Java Library that can do this
   
-      4. Using an API (won't do this today since we haven't covered apis yet
+    >  4. Using an API (won't do this today since we haven't covered apis yet
   
-      5. Hash Matching (this seems too complicated)
-           - Use hashed common passwords and compare the hashed input for efficiency/security 
+    >  5. Hash Matching (this seems too complicated)
+    >       - Use hashed common passwords and compare the hashed input for efficiency/security 
 
 
 ## Coding: Password Length
@@ -79,6 +81,7 @@ Now we will implement the functions test-driven.
 Now we will implement the functions test-driven.
 
 - [ ] Now write the test-driven function for checking if the password contains weak passwords like 'Password1' or 'Aa345678'.
+
 
 ## Coding: Bonus Task
 

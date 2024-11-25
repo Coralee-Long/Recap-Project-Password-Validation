@@ -1,5 +1,10 @@
 package com.neuefische;
 
+import java.io.File;
+import java.io.InputStream;
+import java.util.HashSet;
+import java.util.Scanner;
+
 public class PasswordValidation {
     public static boolean isPasswordLengthValid(String password) {
         int minLength = 8;
@@ -59,5 +64,34 @@ public class PasswordValidation {
             }
         }
         return false;
+    }
+
+    // ----------- Attempt with Static list of passwords & HashSet
+    // create a "static field" to store the passwords:
+    private static HashSet<String> commonPasswords = new HashSet<>();
+
+    // Basic loading of passwords from the file:
+    public static void loadCommonPasswords() {
+        try {
+            InputStream inputStream = PasswordValidation.class.getResourceAsStream("/documents/10k-most-common.txt");
+
+            Scanner scanner = new Scanner(inputStream);
+
+            while (scanner.hasNextLine()) {
+                commonPasswords.add(scanner.nextLine().trim());
+            }
+            scanner.close();
+
+        } catch (Exception e) {
+            System.out.println("Error: Could not load common passwords.");
+        }
+    };
+
+    // Check if password is common:
+    public static boolean isPasswordCommon(String password) {
+        if (commonPasswords == null || commonPasswords.isEmpty()) {
+            loadCommonPasswords(); // Load passwords if not already loaded
+        }
+        return commonPasswords.contains(password);
     }
 }

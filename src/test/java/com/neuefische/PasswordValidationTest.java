@@ -167,4 +167,27 @@ class PasswordValidationTest {
         // THEN
         Assertions.assertTrue(actual);
     }
+
+    // ---------------------- Common Password Validations ----------------------- //
+
+    @Test
+    void expectTrue_whenPW_isTooCommon() {
+        // GIVEN
+        String password = "password1";
+        // WHEN
+        boolean actual = PasswordValidation.isPasswordCommon(password);
+        // THEN
+        Assertions.assertTrue(actual);
+    }
+
+    @Test
+    void expectFalse_whenPW_isNotCommon() {
+        // GIVEN
+        String password = "P@ssw0rd1sc0mplicated2024";
+        // WHEN
+        boolean actual = PasswordValidation.isPasswordCommon(password);
+        // THEN
+        Assertions.assertFalse(actual);
+    }
+
 }
