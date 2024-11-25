@@ -105,4 +105,26 @@ public class PasswordValidation {
         }
         return false; // hasSpecialCharacters ? false
     }
+
+    // Consolidate into a single validator method:
+    public static boolean validatePassword(String password) {
+        if (isPasswordLengthValid(password) &&
+                checkPasswordContainsNumber(password) &&
+                checkPasswordContainsUpperCaseChars(password) &&
+                checkPasswordContainsLowerCaseChars(password) &&
+                !isPasswordCommon(password)) {
+            return true;
+        }
+        return false;
+    }
+
+    // Single validator using Regex:
+    public static boolean validatePasswordRegex(String password) {
+        Pattern regex = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*(),.?\":{}|<>]).{8,32}$");
+
+        if (regex.matcher(password).find() && !isPasswordCommon(password)) {
+            return true;
+        }
+        return false;
+    }
 }

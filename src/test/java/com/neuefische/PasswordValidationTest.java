@@ -211,4 +211,48 @@ class PasswordValidationTest {
         // THEN
         Assertions.assertFalse(actual);
     }
+
+    // ---------------------- Overall Password Validations ----------------------- //
+
+    @Test
+    void expectTrue_whenPW_isValid() {
+        // GIVEN
+        String password = "Password@FINAL_90";
+        // WHEN
+        boolean actual = PasswordValidation.validatePassword(password);
+        // THEN
+        Assertions.assertTrue(actual);
+    }
+
+    @Test
+    void expectFalse_whenPW_isNotValid() {
+        // GIVEN
+        String password = "shitpassword";
+        // WHEN
+        boolean actual = PasswordValidation.validatePassword(password);
+        // THEN
+        Assertions.assertFalse(actual);
+    }
+
+    // ---------------------- Overall Password Validations (Regex) ----------------------- //
+    @Test
+    void expectTrue_whenPW_isValidRegex() {
+        // GIVEN
+        String password = "Password@FINAL_90";
+        // WHEN
+        boolean actual = PasswordValidation.validatePasswordRegex(password);
+        // THEN
+        Assertions.assertTrue(actual);
+    }
+
+    @Test
+    void expectFalse_whenPW_isNotValidRegex() {
+        // GIVEN
+        String password = "shitpassword";
+        // WHEN
+        boolean actual = PasswordValidation.validatePasswordRegex(password);
+        // THEN
+        Assertions.assertFalse(actual);
+    }
+
 }

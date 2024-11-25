@@ -90,7 +90,20 @@ Now we will implement the functions test-driven.
 If you are already done with the main task, you can try the bonus tasks.
 
 - [x] Extend the password validation to check if the password contains special characters.
-> Used regex: "[^a-zA-Z0-9]"
+> regex = "[^a-zA-Z0-9]"
+
+💡 Created extra function that validates password only with regex:
+> fullRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>]).{8,32}$"
+
+Explanation:
+
+- `^`: Ensures the regex applies to the start of the string.
+- `(?=.*[a-z])`: Requires at least one lowercase letter.
+- `(?=.*[A-Z])`: Requires at least one uppercase letter.
+- `(?=.*\d)`: Requires at least one digit.
+- `(?=.*[!@#$%^&*(),.?":{}|<>])`: Requires at least one special character.
+- `.{8,32}`: Limits the string length to between 8 and 32 characters.
+- `$`: Ensures the regex applies to the end of the string.
 
 ## Bonus: Random Password
 
